@@ -1,0 +1,40 @@
+$height: 29px;
+$width: 29px;
+$halfheight: ($height/2);
+$thickness: 110%;
+$offset: 2px;
+$backgroundcolor: #fff;
+$linecolor: #6d7197;
+
+.zigzag {
+  margin: 5.5% 0;
+  width: 100%;
+  background: $backgroundcolor;
+  position: relative;
+  height: 10px;
+  z-index: 1;
+  &:before,
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+  }
+  &:before {
+    height: ($height - $offset);
+    top: $thickness;
+    background: linear-gradient(35deg, $linecolor $halfheight, transparent 0) 0 $halfheight, linear-gradient( -35deg, $linecolor $halfheight, transparent 0) 0 $halfheight;
+    background-position: top left;
+    background-repeat: repeat-x;
+    background-size: $width $height;
+  }
+  &:after {
+    height: $height;
+    top: 115%;
+    background: linear-gradient(35deg, $backgroundcolor $halfheight, transparent 0) 0 $halfheight, linear-gradient( -35deg, $backgroundcolor $halfheight, transparent 0) 0 $halfheight;
+    background-position: top left;
+    background-repeat: repeat-x;
+    background-size: $width $height;
+  }
+}
